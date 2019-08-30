@@ -76,45 +76,45 @@ include_once 'system/checkLogin.php';
                 include_once 'system/connection.php';
 
                 $con = ConnectionDb::getInstance();
+
+                $sql_primero = "SELECT * FROM cursos WHERE grado_curso='PRIMERO'";
+                $sql_segundo = "SELECT * FROM cursos WHERE grado_curso='SEGUNDO'";
+                $sql_tercero = "SELECT * FROM cursos WHERE grado_curso='TERCERO'";
+                $sql_cuarto = "SELECT * FROM cursos WHERE grado_curso='CUARTO'";
+                $sql_quinto = "SELECT * FROM cursos WHERE grado_curso='QUINTO'";
+
                 $con->connect();
 
-                $slq_primaria_cursos = "SELECT * FROM cursos INNER JOIN cursosgrado ON cursos.id_curso=cursosgrado.id_curso_fk INNER JOIN grados ON grados.id_grado=cursosgrado.id_grado_fk WHERE grados.nivel='PRIMARIA' ORDER BY grados.numero ASC";
-                $slq_secundaria_cursos = "SELECT * FROM cursos INNER JOIN cursosgrado ON cursos.id_curso=cursosgrado.id_curso_fk INNER JOIN grados ON grados.id_grado=cursosgrado.id_grado_fk WHERE grados.nivel='SECUNDARIA' ORDER BY grados.numero ASC";
-
-                $result_primaria_cursos = $con->query($slq_primaria_cursos);
-                $result_secundaria_cursos = $con->query($slq_secundaria_cursos);
-
-                $num_primaria = $con->getnumrows($result_primaria_cursos);
-                $num_secundaria = $con->getnumrows($result_secundaria_cursos);
+                $result_primero = $con->query($sql_primero);
+                $result_segundo = $con->query($sql_segundo);
+                $result_tercero = $con->query($sql_tercero);
+                $result_cuarto = $con->query($sql_cuarto);
+                $result_quinto = $con->query($sql_quinto);
 
                 $con->close();
                 ?>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <h2 class="subtitulos">Lista de Cursos Primaria</h2>
+                <div class="row" align="center">
+                    <div class="col-6 col-sm-6 col-md-4 col-xs-2">
+                        <h2 class="subtitulos">Primero</h2>
                         <?php
-                        if ($num_primaria < 0){
-                            echo "<h3>NO REGISTRA CURSOS EN PRIMARIA</h3>";
-                        }else{
+                        if ($con->getnumrows($result_primero) > 0){
                             ?>
                             <div class="responsive">
                                 <table class="table table-striped table-hover">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col"></th>
-                                        <th scope="col">Grado</th>
+                                        <th scope="col">Nombre</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $count = 1;
-                                    while ($row = $con->getarray($result_primaria_cursos)){
+                                    $num = 1;
+                                    while ($row = $con->getarray($result_primero)){
                                         ?>
                                         <tr>
-                                            <th scope="row"><?php echo $count++; ?></th>
+                                            <th scope="row"><?php echo $num++; ?></th>
                                             <td><?php echo $row['nombre_curso']; ?></td>
-                                            <td><?php echo $row['grado']; ?></td>
                                         </tr>
                                     <?php
                                     }
@@ -124,41 +124,38 @@ include_once 'system/checkLogin.php';
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Grado</th>
                                         </tr>
                                     </tfooter>
                                 </table>
                             </div>
                         <?php
+                        }else{
+                            echo "<h3>No registra cursos.</h3>";
                         }
                         ?>
                     </div>
 
-                    <div class="col-12 col-sm-6">
-                        <h2 class="subtitulos">Lista de Cursos Secundaria</h2>
+                    <div class="col-6 col-sm-6 col-md-4 col-xs-2">
+                        <h2 class="subtitulos">Segundo</h2>
                         <?php
-                        if ($num_secundaria < 0){
-                            echo "<h3>NO REGISTRA CURSOS EN PRIMARIA</h3>";
-                        }else{
+                        if ($con->getnumrows($result_segundo) > 0){
                             ?>
                             <div class="responsive">
                                 <table class="table table-striped table-hover">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col"></th>
-                                        <th scope="col">Grado</th>
+                                        <th scope="col">Nombre</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $count = 1;
-                                    while ($row = $con->getarray($result_secundaria_cursos)){
+                                    $num = 1;
+                                    while ($row = $con->getarray($result_segundo)){
                                         ?>
                                         <tr>
-                                            <th scope="row"><?php echo $count++; ?></th>
+                                            <th scope="row"><?php echo $num++; ?></th>
                                             <td><?php echo $row['nombre_curso']; ?></td>
-                                            <td><?php echo $row['grado']; ?></td>
                                         </tr>
                                         <?php
                                     }
@@ -168,15 +165,141 @@ include_once 'system/checkLogin.php';
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Grado</th>
                                         </tr>
                                     </tfooter>
                                 </table>
                             </div>
                             <?php
+                        }else{
+                            echo "<h3>No registra cursos.</h3>";
                         }
                         ?>
                     </div>
+
+                    <div class="col-6 col-sm-6 col-md-4 col-xs-2">
+                        <h2 class="subtitulos">Tercero</h2>
+                        <?php
+                        if ($con->getnumrows($result_tercero) > 0){
+                            ?>
+                            <div class="responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $num = 1;
+                                    while ($row = $con->getarray($result_tercero)){
+                                        ?>
+                                        <tr>
+                                            <th scope="row"><?php echo $num++; ?></th>
+                                            <td><?php echo $row['nombre_curso']; ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
+                                    </tbody>
+                                    <tfooter>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                        </tr>
+                                    </tfooter>
+                                </table>
+                            </div>
+                            <?php
+                        }else{
+                            echo "<h3>No registra cursos.</h3>";
+                        }
+                        ?>
+                    </div>
+
+                    <div class="col-6 col-sm-6 col-md-4 col-xs-2">
+                        <h2 class="subtitulos">Cuarto</h2>
+                        <?php
+                        if ($con->getnumrows($result_cuarto) > 0){
+                            ?>
+                            <div class="responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $num = 1;
+                                    while ($row = $con->getarray($result_cuarto)){
+                                        ?>
+                                        <tr>
+                                            <th scope="row"><?php echo $num++; ?></th>
+                                            <td><?php echo $row['nombre_curso']; ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
+                                    </tbody>
+                                    <tfooter>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                        </tr>
+                                    </tfooter>
+                                </table>
+                            </div>
+                            <?php
+                        }else{
+                            echo "<h3>No registra cursos.</h3>";
+                        }
+                        ?>
+                    </div>
+
+                    <div class="col-6 col-sm-6 col-md-4 col-xs-2">
+                        <h2 class="subtitulos">Quinto</h2>
+                        <?php
+                        if ($con->getnumrows($result_quinto) > 0){
+                            ?>
+                            <div class="responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $num = 1;
+                                    while ($row = $con->getarray($result_quinto)){
+                                        ?>
+                                        <tr>
+                                            <th scope="row"><?php echo $num++; ?></th>
+                                            <td><?php echo $row['nombre_curso']; ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
+                                    </tbody>
+                                    <tfooter>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nombre</th>
+                                        </tr>
+                                    </tfooter>
+                                </table>
+                            </div>
+                            <?php
+                        }else{
+                            echo "<h3>No registra cursos.</h3>";
+                        }
+                        ?>
+                    </div>
+
+
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -200,59 +323,29 @@ include_once 'system/checkLogin.php';
                     <div class="modal-body">
                         <h2 class="subtitulos">Crear Curso</h2>
                         <br>
-                        <?php
-                        include_once 'system/connection.php';
-
-                        $con = ConnectionDb::getInstance();
-
-                        $sql_primaria = "SELECT * FROM grados WHERE nivel='PRIMARIA' ORDER BY numero";
-                        $sql_secundaria = "SELECT * FROM grados WHERE nivel='SECUNDARIA' ORDER BY numero";
-
-                        $con->connect();
-                        $result_primaria = $con->query($sql_primaria);
-                        $result_secundaria = $con->query($sql_secundaria);
-
-                        $count_primaria = $con->getnumrows($result_primaria);
-                        $count_secundaria = $con->getnumrows($result_secundaria);
-
-                        $con->close();
-
-                        ?>
-
                             <div class="form-group">
-                                <label>Primaria</label>
-                                <?php
-                                if ($count_primaria > 0 ){
-                                    while ($row = $con->getarray($result_primaria)){
-                                        ?>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" name="nivel" value="<?php echo $row['id_grado'] ?>"><?php echo $row['grado'] ?>
-                                        </label>
-                                        <?php
-                                    }
-                                }else{
-                                    echo "<h4>No registra grados en primaria</h4>";
-                                }
-                                ?>
+                                <label>Grado</label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="grado" value="PRIMERO">Primero
+                                </label>
+
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="grado" value="SEGUNDO">Segundo
+                                </label>
+
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="grado" value="TERCERO">Tercero
+                                </label>
+
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="grado" value="CUARTO">Cuarto
+                                </label>
+
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="grado" value="QUINTO">Quinto
+                                </label>
                             </div>
                             <hr>
-                            <div class="form-group">
-                                <label>Secundaria</label>
-                                <?php
-                                if ($count_secundaria > 0 ){
-                                    while ($row = $con->getarray($result_secundaria)){
-                                        ?>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" name="nivel" value="<?php echo $row['id_grado'] ?>"><?php echo $row['grado'] ?>
-                                        </label>
-                                        <?php
-                                    }
-                                }else{
-                                    echo "<h4>No registra grados en secundaria</h4>";
-                                }
-                                ?>
-                            </div>
-
                             <div class="form-group">
                                 <label>Nombre del Curso</label>
                                 <input class="form-control" name="nombre_curso" required>

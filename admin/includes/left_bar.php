@@ -6,13 +6,13 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-wrench fa-fw"></i> Matriculas<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Matrículas<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="panels-wells.html">Nueva Matricula</a>
+                        <a href="nuevamatricula.php">Nueva Matrícula</a>
                     </li>
                     <li>
-                        <a href="buttons.html">Lista de Matriculados</a>
+                        <a href="listamatriculados.php">Lista de Matriculados</a>
                     </li>
                 </ul>
             </li>
@@ -20,9 +20,6 @@
             <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Colegio<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <a href="grados.php">Grados</a>
-                    </li>
                     <li>
                         <a href="cursos.php">Cursos</a>
                     </li>
