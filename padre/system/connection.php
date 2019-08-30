@@ -6,7 +6,7 @@ class ConnectionDb{
     private static $user = "u972238859_maria";
 
     //private static $pass = "";
-    private static $pass = "cepmaria";
+    private static $pass = "patrones0-";
 
     //private static $db = "colegiodb";
     private static $db = "u972238859_maria";
