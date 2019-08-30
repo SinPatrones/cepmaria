@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>KRATOS DEFENSE & SECURITY</title>
+  <title>C.E.P. María Auxiliadora Arequipa</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="Seguridad Arequipa Confianza Equipo Peru Ganesha" name="keywords">
   <meta content="Somos una empresa dedicada a brindar seguridad en todo tipo de eventos públicos y privados." name="description">
