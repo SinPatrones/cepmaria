@@ -1,4 +1,3 @@
-<?php include_once 'system/checkLogin.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -63,47 +62,49 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Nueva Matrícula</h1>
+                        <h1 class="page-header">Registrar Nuevo Profesor</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+
                 <div class="row">
                     <div class="col-12 col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-3">
-                        <form role="form" action="actions/nuevamatricula.php" method="post">
-                            <div class="form-group">
-                                <label>Seleccione el grado de Educación</label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="grado" id="grado1" value="PRIMERO" required>Primero
-                                </label>
+                        <form role="form" action="actions/registrarprofesor.php" method="post">
+                            <form role="form" action="actions/nuevamatricula.php" method="post">
+                                <div class="form-group">
+                                    <label>Seleccione el grado de Educación</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="grado" id="grado1" value="PRIMERO" required>Primero
+                                    </label>
 
-                                <label class="radio-inline">
-                                    <input type="radio" name="grado" id="grado2" value="SEGUNDO" required>Segundo
-                                </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="grado" id="grado2" value="SEGUNDO" required>Segundo
+                                    </label>
 
-                                <label class="radio-inline">
-                                    <input type="radio" name="grado" id="grado2" value="TERCERO" required>Tercero
-                                </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="grado" id="grado2" value="TERCERO" required>Tercero
+                                    </label>
 
-                                <label class="radio-inline">
-                                    <input type="radio" name="grado" id="grado2" value="CUARTO" required>Cuarto
-                                </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="grado" id="grado2" value="CUARTO" required>Cuarto
+                                    </label>
 
-                                <label class="radio-inline">
-                                    <input type="radio" name="grado" id="grado2" value="QUINTO" required>Quinto
-                                </label>
-                            </div>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="grado" id="grado2" value="QUINTO" required>Quinto
+                                    </label>
+                                </div>
 
                             <div class="form-group">
                                 <label>Nombres</label>
                                 <input class="form-control" name="nombres" type="text" required>
-                                <p class="help-block">Ingrese los nombres del alumno.</p>
+                                <p class="help-block">Ingrese los nombres del profesor.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Apellidos</label>
                                 <input class="form-control" name="apellidos" type="text" required>
-                                <p class="help-block">Ingrese los apellidos del alumno.</p>
+                                <p class="help-block">Ingrese los apellidos del profesor.</p>
                             </div>
 
                             <div class="form-group">
@@ -122,7 +123,7 @@
                                 <input class="form-control" type="date" name="fecha_nacimiento" required>
                             </div>
 
-                            <button type="submit" class="btn btn-success">MATRÍCULAR</button>
+                            <button type="submit" class="btn btn-success">REGISTRAR</button>
                             <button type="reset" class="btn btn-primary">LIMPIAR FORMULARIO</button>
                         </form>
                     </div>

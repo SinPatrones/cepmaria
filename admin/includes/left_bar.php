@@ -26,6 +26,17 @@
                 </ul>
             </li>
 
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Profesores<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="registrarprofesor.php">Registrar Profesor</a>
+                        <a href="asignarprofesor.php">Asignar grado y curso</a>
+                        <a href="listaprofesor.php">Lista de Profesores</a>
+                        <a href="profesorescursos.php">Profesores y Cursos</a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
     </div>

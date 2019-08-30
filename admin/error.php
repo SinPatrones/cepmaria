@@ -9,7 +9,7 @@
     <meta name="description" content="Panel de control para la página de Kratos">
     <meta name="author" content="Ganesha">
 
-    <title>Kratos - Panel</title>
+    <title>C.E.P. María Auxiliadora Arequipa - Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">KRATOS</a>
+                <a class="navbar-brand" href="index.php">C.E.P. María Auxiliadora Arequipa</a>
             </div>
             <!-- /.navbar-header -->
 
