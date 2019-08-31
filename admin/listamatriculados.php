@@ -1,3 +1,4 @@
+<?php include_once 'system/checkLogin.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -176,7 +177,7 @@
                                                     <tbody>
                                                     <?php
                                                     $num = 1;
-                                                    while ($row = $con->getarray($result_primero)){
+                                                    while ($row = $con->getarray($result_segundo)){
                                                         ?>
                                                         <tr>
                                                             <th scope="row"><?php echo $num++; ?></th>

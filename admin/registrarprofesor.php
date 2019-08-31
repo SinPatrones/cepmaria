@@ -1,3 +1,4 @@
+<?php include_once 'system/checkLogin.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
