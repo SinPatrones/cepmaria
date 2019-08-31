@@ -6,45 +6,24 @@
             </li>
 
             <li>
-                <a href="inicio.php"><i class="fa fa-dashboard fa-fw"></i> Sección Inicio</a>
+                <a href="cursos.php"><i class="fa fa-dashboard fa-fw"></i> Cursos</a>
             </li>
 
             <li>
-                <a href="nosotros.php"><i class="fa fa-dashboard fa-fw"></i> Sección Nosotros</a>
+                <a href="notificar.php"><i class="fa fa-dashboard fa-fw"></i> Notificar</a>
             </li>
 
             <li>
-                <a href="servicios.php"><i class="fa fa-dashboard fa-fw"></i> Sección Servicios</a>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> NOTIFICACIONES<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="notificar.php">Notificar</a>
+                    </li>
+                    <li>
+                        <a href="notificaciones.php">Mis Notificaciones</a>
+                    </li>
+                </ul>
             </li>
-
-            <li>
-                <a href="porque.php"><i class="fa fa-dashboard fa-fw"></i> Sección Porqué</a>
-            </li>
-
-            <li>
-                <a href="portafolio.php"><i class="fa fa-dashboard fa-fw"></i> Sección Portafolio</a>
-            </li>
-
-            <li>
-                <a href="testimonios.php"><i class="fa fa-dashboard fa-fw"></i> Sección Testimonios</a>
-            </li>
-
-            <li>
-                <a href="equipo.php"><i class="fa fa-dashboard fa-fw"></i> Sección Equipo</a>
-            </li>
-
-            <li>
-                <a href="clientes.php"><i class="fa fa-dashboard fa-fw"></i> Sección Clientes</a>
-            </li>
-
-            <li>
-                <a href="preguntas.php"><i class="fa fa-dashboard fa-fw"></i> Sección Preguntas Frecuentes</a>
-            </li>
-
-            <li>
-                <a href="contactos.php"><i class="fa fa-dashboard fa-fw"></i> Sección Contacto</a>
-            </li>
-
 
         </ul>
     </div>

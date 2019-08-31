@@ -47,6 +47,18 @@
                 </ul>
             </li>
 
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> NOTIFICACIONES<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="notificar.php">Notificar</a>
+                    </li>
+                    <li>
+                        <a href="notificaciones.php">Mis Notificaciones</a>
+                    </li>
+                </ul>
+            </li>
+
         </ul>
     </div>
     <!-- /.sidebar-collapse -->
