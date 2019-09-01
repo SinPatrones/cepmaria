@@ -135,7 +135,7 @@ $id_usuario = $token->id;
                                         for ($x = 0; $x < sizeof($cursos_array); $x++){
                                             if ($x == 0){
                                                 ?>
-                                                <div class="tab-pane fade in active" id="curso1">
+                                                <div class="tab-pane fade in active" id="curso<?php echo $cursos_array[$x]['id_curso']; ?>">
                                                     <h4><?php echo $cursos_array[$x]['nombre_curso']; ?></h4>
                                                         <div class="table-responsive table-bordered">
                                                             <table class="table">
@@ -144,30 +144,68 @@ $id_usuario = $token->id;
                                                                     <th>#</th>
                                                                     <th>Nombres</th>
                                                                     <th>Apellidos</th>
-                                                                    <th>Primer Bimestre</th>
-                                                                    <th>Segundo Bimestre</th>
-                                                                    <th>Tercero Bimestre</th>
-                                                                    <th>Cuarto Bimestre</th>
-                                                                    <th>Nota Final</th>
-                                                                    <th>Acciones</th>
+                                                                    <th align="center">Primer Bimestre</th>
+                                                                    <th align="center">Segundo Bimestre</th>
+                                                                    <th align="center">Tercero Bimestre</th>
+                                                                    <th align="center">Cuarto Bimestre</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 <?php
                                                                 for ($k = 0; $k < sizeof($array_alumnos); $k++){
                                                                     ?>
-                                                                    <tr>
-                                                                        <td><?php echo $k+1;?></td>
-                                                                        <td><?php echo $array_alumnos[$k]['nombres']; ?></td>
-                                                                        <td><?php echo $array_alumnos[$k]['apellidos']; ?></td>
-                                                                        <td><input type="number"></td>
-                                                                        <td><input type="number"></td>
-                                                                        <td><input type="number"></td>
-                                                                        <td><input type="number"></td>
-                                                                        <td><input type="number" readonly></td>
-                                                                        <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>">
-                                                                        <td><button class="btn btn-success">Guardar</button></td>
-                                                                    </tr>
+                                                                    <form action="actions/guardarnota.php" method="post">
+                                                                        <tr>
+                                                                            <td><?php echo $k+1;?></td>
+                                                                            <td><?php echo $array_alumnos[$k]['nombres']; ?></td>
+                                                                            <td><?php echo $array_alumnos[$k]['apellidos']; ?></td>
+                                                                            <form action="actions/guardarnota.php" method="post">
+                                                                                <td align="center">
+                                                                                    <input type="number" name="primerbimestre" max="20" min="0">
+                                                                                    <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                    <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                    <input type="text" style="display: none" value="1" name="grado">
+                                                                                    <br>
+                                                                                    <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                                </td>
+                                                                            </form>
+
+                                                                            <form action="actions/guardarnota.php" method="post">
+                                                                                <td align="center">
+                                                                                    <input type="number" name="segundobimestre" max="20" min="0">
+                                                                                    <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                    <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                    <input type="text" style="display: none" value="2" name="grado">
+                                                                                    <br>
+                                                                                    <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                                </td>
+                                                                            </form>
+
+                                                                            <form action="actions/guardarnota.php" method="post">
+                                                                                <td align="center">
+                                                                                    <input type="number" name="tercerbimestre" max="20" min="0">
+                                                                                    <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                    <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                    <input type="text" style="display: none" value="3" name="grado">
+                                                                                    <br>
+                                                                                    <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                                </td>
+                                                                            </form>
+
+                                                                            <form action="actions/guardarnota.php" method="post">
+                                                                                <td align="center">
+                                                                                    <input type="number" name="cuartobimestre" max="20" min="0">
+                                                                                    <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                    <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                    <input type="text" style="display: none" value="4" name="grado">
+                                                                                    <br>
+                                                                                    <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                                </td>
+                                                                            </form>
+
+
+                                                                        </tr>
+                                                                    </form>
                                                                 <?php
                                                                 }
                                                                 ?>
@@ -178,13 +216,83 @@ $id_usuario = $token->id;
                                         <?php
                                             }else{
                                                 ?>
-                                                <div class="tab-pane fade" id="curso6">
+                                                <div class="tab-pane fade" id="curso<?php echo $cursos_array[$x]['id_curso']; ?>">
                                                     <h4><?php echo $cursos_array[$x]['nombre_curso']; ?></h4>
-                                                    <?php
-                                                    for ($k = 0; $k < sizeof($array_alumnos); $k++){
-                                                        echo "<p>".$array_alumnos[$k]['nombres']."</p>";
-                                                    }
-                                                    ?>
+                                                    <div class="table-responsive table-bordered">
+                                                        <table class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Nombres</th>
+                                                                <th>Apellidos</th>
+                                                                <th align="center">Primer Bimestre</th>
+                                                                <th align="center">Segundo Bimestre</th>
+                                                                <th align="center">Tercero Bimestre</th>
+                                                                <th align="center">Cuarto Bimestre</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+                                                            for ($k = 0; $k < sizeof($array_alumnos); $k++){
+                                                                ?>
+                                                                <form action="actions/guardarnota.php" method="post">
+                                                                    <tr>
+                                                                        <td><?php echo $k+1;?></td>
+                                                                        <td><?php echo $array_alumnos[$k]['nombres']; ?></td>
+                                                                        <td><?php echo $array_alumnos[$k]['apellidos']; ?></td>
+                                                                        <form action="actions/guardarnota.php" method="post">
+                                                                            <td align="center">
+                                                                                <input type="number" name="primerbimestre" max="20" min="0">
+                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                <input type="text" style="display: none" value="1" name="grado">
+                                                                                <br>
+                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                            </td>
+                                                                        </form>
+
+                                                                        <form action="actions/guardarnota.php" method="post">
+                                                                            <td align="center">
+                                                                                <input type="number" name="segundobimestre" max="20" min="0">
+                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                <input type="text" style="display: none" value="2" name="grado">
+                                                                                <br>
+                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                            </td>
+                                                                        </form>
+
+                                                                        <form action="actions/guardarnota.php" method="post">
+                                                                            <td align="center">
+                                                                                <input type="number" name="tercerbimestre" max="20" min="0">
+                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                <input type="text" style="display: none" value="3" name="grado">
+                                                                                <br>
+                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                            </td>
+                                                                        </form>
+
+                                                                        <form action="actions/guardarnota.php" method="post">
+                                                                            <td align="center">
+                                                                                <input type="number" name="cuartobimestre" max="20" min="0">
+                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                <input type="text" style="display: none" value="4" name="grado">
+                                                                                <br>
+                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                            </td>
+                                                                        </form>
+
+
+                                                                    </tr>
+                                                                </form>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                         <?php
                                             }
