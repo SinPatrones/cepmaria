@@ -38,6 +38,9 @@
                 </ul>
             </li>
 
+            <li>
+                <a href="mensajes.php"><i class="fa fa-comments fa-fw"></i> MENSAJES WEB</a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

@@ -57,7 +57,6 @@
           <li class="active"><a href="#intro">Inicio</a></li>
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicios</a></li>
-          <li><a href="#portfolio">Portafolio</a></li>
           <li><a href="#team">Equipo</a></li>
           <li><a href="#footer">Contactanos</a></li>
           <li><a href="ingresar/index.php">Plataforma</a></li>
@@ -171,40 +170,43 @@
         
         <header class="section-header">
           <h3>¿Por qué escogernos?</h3>
-          <p>Algún titulo preliminar...</p>
         </header>
 
         <div class="row">
 
           <div class="col-lg-6">
-            <div class="why-us-img">
-              <img src="img/why-us.jpg" alt="" class="img-fluid">
+            <div class="why-us-img" style="margin-left: 50px;">
+              <img src="img/why-us.jpg" alt="" width="40%" class="img-fluid">
+                <img src="img/why-us3.jpg" alt="" width="40%" class="img-fluid">
+                <br>
+                <img src="img/why-us2.jpg" alt="" width="40%" class="img-fluid">
+              <img src="img/why-us4.jpg" alt="" width="40%" class="img-fluid">
             </div>
           </div>
 
           <div class="col-lg-6">
             <div class="why-us-content">
-              <p>Nosotros no solamente brindamos seguridad en su eventos, también nos preocupamos por cuidar la integridad de las personas.</p>
+              <p>Llevamos varios años brindando conocimientos y apoyando en la educación de nuestras niñas de Arequipa</p>
               <p>
-                Débido a que no solo la integridad de la gente se ve vulnerada por el mal actuar de ciertas personas, es que también nos vemos con la capacidad de brindar el siguiente apoyo.
+                Y cada año vamos implementando nuevas métodologias para que la educación en nuestro colegio sea la más innovadora y atractiva para nuestras alumnas; pudiendo así promover el estudio en ellas y que sean autodidactas a la vez.
               </p>
 
               <div class="features wow bounceInUp clearfix">
                 <i class="fa fa-diamond" style="color: #f058dc;"></i>
-                <h4>Atención de Primeros Auxilios</h4>
-                <p>Cada uno de nuestro personal esta capacido para brindar atención de primeros auxilios, ya que cada segundo cuenta cuando una vida esta en riesgo.</p>
+                <h4>Atención en Salud y Primeros Auxilios</h4>
+                <p>LA integridad fisica y mental de nuestas alumnas es lo primordial, por ello es que contamos con psicologos que periodicamente dan resultados de nuestras alumnas para poder apoyarlas en algún problema que esten afrontando a su vez nuestros profesores estan capacitados para brindar primeros auxilios por si surgiese algun incoveniente.</p>
               </div>
 
               <div class="features wow bounceInUp clearfix">
                 <i class="fa fa-object-group" style="color: #ffb774;"></i>
-                <h4>Prevención de Incendios y Manejo de Extintores</h4>
-                <p>Nuestro personal también tiene conocimiento de como prevenir un incendio, debiendo ser reportado para poder así mismo evitarlo(como cables mal conectados o una actividad pirotecnica mal usada); a su vez conociendo como manejar todo tipo de extintores para poder sofocar el fuego lo más antes posible.</p>
+                <h4>Convenios Universitarios</h4>
+                <p>Nuestra institución cuenta con convenios con universidades para que nuestras egresadas del centro educativo, puedan postular a universidad y a la vez se les premia con becas para que continuen sus estudios universitarios, como siempre, no solo nos preocupamos en que en nuestra institución tenga lo mejor de la educación, si no que proyectamos también su futuro, puediendo ayudarles a alcanzar lo que deseen en educación.</p>
               </div>
               
               <div class="features wow bounceInUp clearfix">
                 <i class="fa fa-language" style="color: #589af1;"></i>
-                <h4>Contamos con Unidad de Movilidad</h4>
-                <p>Nuestra unidad de movilidad nos permite llevar a una persona que necesite ser atendida rápidamente en alguna clinica u hospital.</p>
+                <h4>Mejores Laboratios y Aulas</h4>
+                <p>El ambiente de estudio es también parte fundamental para la educación, este debe brindar todas las comodidades para que nuestras alumnas se sientan en agrado de poder estudiar; es por esto que nuestros salones y laboratorios multimedia estan en constante actualización así como nuestros docentes se capacitan para poder aprovechar todo de los nuevos recursos que les brindamos.</p>
               </div>
               
             </div>
@@ -450,7 +452,7 @@
                 <img src="img/testimonial-4.jpg" class="testimonial-img" alt="">
                 <h3>Victor Robles</h3>
                 <p>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  Me agrada que motiven al emprendimiento e investigación en las alumnas, creando proyectos sociales y tecnológicos.
                 </p>
               </div>
 
@@ -670,7 +672,7 @@
               
               <h4>Envianos un mensaje</h4>
               <p>Sí tienes alguna duda, consulta, no dudes en escribirnos.</p>
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="enviarmensaje.php" method="post" role="form" class="contactForm">
                 <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Su nombre" data-rule="minlen:4" data-msg="Por favor, ingrese al menos tres caracteres." required/>
                   <div class="validation"></div>
@@ -680,7 +682,7 @@
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <input type="number" class="form-control" name="subject" id="subject" placeholder="Su número" data-rule="minlen:4" data-msg="Por favor, ingrese su número de celular." required/>
+                  <input type="number" class="form-control" name="numero" id="subject" placeholder="Su número" data-rule="minlen:4" data-msg="Por favor, ingrese su número de celular." required/>
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
