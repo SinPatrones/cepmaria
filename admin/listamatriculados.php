@@ -73,11 +73,11 @@
 
                 $con = ConnectionDb::getInstance();
 
-                $sql_primero = "SELECT * FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario WHERE matriculas.grado_matricula='PRIMERO' ORDER  BY datosusuarios.apellidos ASC";
-                $sql_segundo = "SELECT * FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario WHERE matriculas.grado_matricula='SEGUNDO' ORDER  BY datosusuarios.apellidos ASC";
-                $sql_tercero = "SELECT * FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario WHERE matriculas.grado_matricula='TERCERO' ORDER  BY datosusuarios.apellidos ASC";
-                $sql_cuarto = "SELECT * FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario WHERE matriculas.grado_matricula='CUARTO' ORDER  BY datosusuarios.apellidos ASC";
-                $sql_quinto = "SELECT * FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario WHERE matriculas.grado_matricula='QUINTO' ORDER  BY datosusuarios.apellidos ASC";
+                $sql_primero = "SELECT *,usuarios.usuario FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario INNER JOIN usuarios ON usuarios.id_usuario=matriculas.id_alumno WHERE matriculas.grado_matricula='PRIMERO' ORDER  BY datosusuarios.apellidos ASC";
+                $sql_segundo = "SELECT *,usuarios.usuario FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario INNER JOIN usuarios ON usuarios.id_usuario=matriculas.id_alumno WHERE matriculas.grado_matricula='SEGUNDO' ORDER  BY datosusuarios.apellidos ASC";
+                $sql_tercero = "SELECT *,usuarios.usuario FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario INNER JOIN usuarios ON usuarios.id_usuario=matriculas.id_alumno WHERE matriculas.grado_matricula='TERCERO' ORDER  BY datosusuarios.apellidos ASC";
+                $sql_cuarto = "SELECT *,usuarios.usuario FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario INNER JOIN usuarios ON usuarios.id_usuario=matriculas.id_alumno WHERE matriculas.grado_matricula='CUARTO' ORDER  BY datosusuarios.apellidos ASC";
+                $sql_quinto = "SELECT *,usuarios.usuario FROM matriculas INNER JOIN datosusuarios ON matriculas.id_alumno=datosusuarios.id_datosusuario INNER JOIN usuarios ON usuarios.id_susuario=matriculas.id_alumno WHERE matriculas.grado_matricula='QUINTO' ORDER  BY datosusuarios.apellidos ASC";
 
                 $con->connect();
 
@@ -125,6 +125,7 @@
                                                         <th scope="col">#</th>
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Apellidos</th>
+                                                        <th scope="col">Usuario</th>
                                                         <th scope="col"></th>
                                                     </tr>
                                                     </thead>
@@ -137,6 +138,7 @@
                                                             <th scope="row"><?php echo $num++; ?></th>
                                                             <td><?php echo $row['nombres']; ?></td>
                                                             <td><?php echo $row['apellidos']; ?></td>
+                                                            <td><?php echo $row['usuario']; ?></td>
                                                             <td><a href="#" class="btn btn-success">VER INFORMACIÓN</a></td>
                                                         </tr>
                                                         <?php
@@ -148,6 +150,7 @@
                                                             <th scope="col">#</th>
                                                             <th scope="col">Nombre</th>
                                                             <th scope="col">Apellidos</th>
+                                                            <th scope="col">Usuario</th>
                                                             <th scope="col"></th>
                                                         </tr>
                                                     </tfooter>
@@ -171,6 +174,7 @@
                                                         <th scope="col">#</th>
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Apellidos</th>
+                                                        <th scope="col">Usuario</th>
                                                         <th scope="col"></th>
                                                     </tr>
                                                     </thead>
@@ -183,6 +187,7 @@
                                                             <th scope="row"><?php echo $num++; ?></th>
                                                             <td><?php echo $row['nombres']; ?></td>
                                                             <td><?php echo $row['apellidos']; ?></td>
+                                                            <td><?php echo $row['usuario']; ?></td>
                                                             <td><a href="#" class="btn btn-success">VER INFORMACIÓN</a></td>
                                                         </tr>
                                                         <?php
@@ -194,6 +199,7 @@
                                                             <th scope="col">#</th>
                                                             <th scope="col">Nombre</th>
                                                             <th scope="col">Apellidos</th>
+                                                            <th scope="col">Usuario</th>
                                                             <th scope="col"></th>
                                                         </tr>
                                                     </tfooter>
@@ -217,18 +223,20 @@
                                                         <th scope="col">#</th>
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Apellidos</th>
+                                                        <th scope="col">Usuario</th>
                                                         <th scope="col"></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <?php
                                                     $num = 1;
-                                                    while ($row = $con->getarray($result_primero)){
+                                                    while ($row = $con->getarray($result_tercero)){
                                                         ?>
                                                         <tr>
                                                             <th scope="row"><?php echo $num++; ?></th>
                                                             <td><?php echo $row['nombres']; ?></td>
                                                             <td><?php echo $row['apellidos']; ?></td>
+                                                            <td><?php echo $row['usuario']; ?></td>
                                                             <td><a href="#" class="btn btn-success">VER INFORMACIÓN</a></td>
                                                         </tr>
                                                         <?php
@@ -240,6 +248,7 @@
                                                             <th scope="col">#</th>
                                                             <th scope="col">Nombre</th>
                                                             <th scope="col">Apellidos</th>
+                                                            <th scope="col">Usuario</th>
                                                             <th scope="col"></th>
                                                         </tr>
                                                     </tfooter>
@@ -263,6 +272,7 @@
                                                         <th scope="col">#</th>
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Apellidos</th>
+                                                        <th scope="col">Usuario</th>
                                                         <th scope="col"></th>
                                                     </tr>
                                                     </thead>
@@ -275,6 +285,7 @@
                                                             <th scope="row"><?php echo $num++; ?></th>
                                                             <td><?php echo $row['nombres']; ?></td>
                                                             <td><?php echo $row['apellidos']; ?></td>
+                                                            <td><?php echo $row['usuario']; ?></td>
                                                             <td><a href="#" class="btn btn-success">VER INFORMACIÓN</a></td>
                                                         </tr>
                                                         <?php
@@ -286,6 +297,7 @@
                                                             <th scope="col">#</th>
                                                             <th scope="col">Nombre</th>
                                                             <th scope="col">Apellidos</th>
+                                                            <th scope="col">Usuario</th>
                                                             <th scope="col"></th>
                                                         </tr>
                                                     </tfooter>
@@ -309,6 +321,7 @@
                                                         <th scope="col">#</th>
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Apellidos</th>
+                                                        <th scope="col">Usuario</th>
                                                         <th scope="col"></th>
                                                     </tr>
                                                     </thead>
@@ -321,6 +334,7 @@
                                                             <th scope="row"><?php echo $num++; ?></th>
                                                             <td><?php echo $row['nombres']; ?></td>
                                                             <td><?php echo $row['apellidos']; ?></td>
+                                                            <td><?php echo $row['usuario']; ?></td>
                                                             <td><a href="#" class="btn btn-success">VER INFORMACIÓN</a></td>
                                                         </tr>
                                                         <?php
@@ -332,6 +346,7 @@
                                                             <th scope="col">#</th>
                                                             <th scope="col">Nombre</th>
                                                             <th scope="col">Apellidos</th>
+                                                            <th scope="col">Usuario</th>
                                                             <th scope="col"></th>
                                                         </tr>
                                                     </tfooter>
