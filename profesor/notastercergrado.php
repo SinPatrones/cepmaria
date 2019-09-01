@@ -149,11 +149,18 @@ $id_usuario = $token->id;
                                                                 <th align="center">Segundo Bimestre</th>
                                                                 <th align="center">Tercero Bimestre</th>
                                                                 <th align="center">Cuarto Bimestre</th>
+                                                                <th align="center">Nota Final</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <?php
                                                             for ($k = 0; $k < sizeof($array_alumnos); $k++){
+                                                                $TERCERO = $array_alumnos[$k]['primer_bimestre'];
+                                                                $segundo = $array_alumnos[$k]['segundo_bimestre'];
+                                                                $tercero = $array_alumnos[$k]['tercer_bimestre'];
+                                                                $cuarto = $array_alumnos[$k]['cuarto_bimestre'];
+                                                                $final = $array_alumnos[$k]['nota_final'];
+                                                                $promedio = round(($TERCERO + $segundo + $tercero + $cuarto) / 4);
                                                                 ?>
                                                                 <form action="actions/guardarnota.php" method="post">
                                                                     <tr>
@@ -162,29 +169,7 @@ $id_usuario = $token->id;
                                                                         <td><?php echo $array_alumnos[$k]['apellidos']; ?></td>
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="primerbimestre" value="<?php echo $array_alumnos[$k]['primer_bimestre']; ?>" max="20" min="0">
-                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
-                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
-                                                                                <input type="text" style="display: none" value="1" name="grado">
-                                                                                <br>
-                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
-                                                                            </td>
-                                                                        </form>
-
-                                                                        <form action="actions/guardarnota.php" method="post">
-                                                                            <td align="center">
-                                                                                <input type="number" name="segundobimestre" value="<?php echo $array_alumnos[$k]['segundo_bimestre']; ?>" max="20" min="0">
-                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
-                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
-                                                                                <input type="text" style="display: none" value="2" name="grado">
-                                                                                <br>
-                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
-                                                                            </td>
-                                                                        </form>
-
-                                                                        <form action="actions/guardarnota.php" method="post">
-                                                                            <td align="center">
-                                                                                <input type="number" name="tercerbimestre" value="<?php echo $array_alumnos[$k]['tercer_bimestre']; ?>" max="20" min="0">
+                                                                                <input type="number" name="primerbimestre" value="<?php echo $TERCERO; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="3" name="grado">
@@ -195,15 +180,64 @@ $id_usuario = $token->id;
 
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="cuartobimestre" value="<?php echo $array_alumnos[$k]['cuarto_bimestre']; ?>" max="20" min="0">
+                                                                                <input type="number" name="segundobimestre" value="<?php echo $segundo; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
-                                                                                <input type="text" style="display: none" value="4" name="grado">
+                                                                                <input type="text" style="display: none" value="3" name="grado">
                                                                                 <br>
                                                                                 <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
                                                                             </td>
                                                                         </form>
 
+                                                                        <form action="actions/guardarnota.php" method="post">
+                                                                            <td align="center">
+                                                                                <input type="number" name="tercerbimestre" value="<?php echo $tercero; ?>" max="20" min="0">
+                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                <input type="text" style="display: none" value="3" name="grado">
+                                                                                <br>
+                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                            </td>
+                                                                        </form>
+
+                                                                        <form action="actions/guardarnota.php" method="post">
+                                                                            <td align="center">
+                                                                                <input type="number" name="cuartobimestre" value="<?php echo $cuarto; ?>" max="20" min="0">
+                                                                                <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
+                                                                                <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
+                                                                                <input type="text" style="display: none" value="3" name="grado">
+                                                                                <br>
+                                                                                <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
+                                                                            </td>
+                                                                        </form>
+
+                                                                        <td align="center">
+                                                                            <?php
+                                                                            if ($final != ""){
+                                                                                if ($promedio == $final){
+                                                                                    echo "<input type=\"number\" name=\"cuartobimestre\" value=\"".$final."\" max=\"20\" min=\"0\">";
+                                                                                }else{
+                                                                                    ?>
+                                                                                    <input type="number" id="nota_final" name="nota_final" value="<?php echo $final; ?>" max="20" min="0">
+                                                                                    <br>
+                                                                                    <div id="botones">
+                                                                                        <p>Se modificarón notas, necesita actualizar nota final.</p>
+                                                                                        <button class="btn btn-warning" onclick="actualizar_nota(<?php echo $array_alumnos[$k]['id_datosusuario']; ?>,<?php echo $cursos_array[$x]['id_curso']; ?>);">ACTUALIZAR</button>
+                                                                                    </div>
+                                                                                    <?php
+                                                                                }
+                                                                            }else{
+                                                                                ?>
+                                                                                <input type="number" id="nota_final" name="nota_final" value="" max="20" min="0">
+                                                                                <br>
+                                                                                <div id="botones">
+                                                                                    <p>No tiene asignada la nota final.</p>
+                                                                                    <button class="btn btn-success" onclick="actualizar_nota(<?php echo $array_alumnos[$k]['id_datosusuario']; ?>,<?php echo $cursos_array[$x]['id_curso']; ?>);">ASIGNAR</button>
+                                                                                </div>
+                                                                                <?php
+                                                                            }
+                                                                            ?>
+                                                                        </td>
 
                                                                     </tr>
                                                                 </form>
@@ -230,11 +264,18 @@ $id_usuario = $token->id;
                                                                 <th align="center">Segundo Bimestre</th>
                                                                 <th align="center">Tercero Bimestre</th>
                                                                 <th align="center">Cuarto Bimestre</th>
+                                                                <th align="center">Nota Final</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <?php
                                                             for ($k = 0; $k < sizeof($array_alumnos); $k++){
+                                                                $TERCERO = $array_alumnos[$k]['primer_bimestre'];
+                                                                $segundo = $array_alumnos[$k]['segundo_bimestre'];
+                                                                $tercero = $array_alumnos[$k]['tercer_bimestre'];
+                                                                $cuarto = $array_alumnos[$k]['cuarto_bimestre'];
+                                                                $final = $array_alumnos[$k]['nota_final'];
+                                                                $promedio = round(($TERCERO + $segundo + $tercero + $cuarto) / 4);
                                                                 ?>
                                                                 <form action="actions/guardarnota.php" method="post">
                                                                     <tr>
@@ -246,7 +287,7 @@ $id_usuario = $token->id;
                                                                                 <input type="number" name="primerbimestre" value="<?php echo $array_alumnos[$k]['primer_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
-                                                                                <input type="text" style="display: none" value="1" name="grado">
+                                                                                <input type="text" style="display: none" value="3" name="grado">
                                                                                 <br>
                                                                                 <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
                                                                             </td>
@@ -257,7 +298,7 @@ $id_usuario = $token->id;
                                                                                 <input type="number" name="segundobimestre" value="<?php echo $array_alumnos[$k]['segundo_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
-                                                                                <input type="text" style="display: none" value="2" name="grado">
+                                                                                <input type="text" style="display: none" value="3" name="grado">
                                                                                 <br>
                                                                                 <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
                                                                             </td>
@@ -279,12 +320,39 @@ $id_usuario = $token->id;
                                                                                 <input type="number" name="cuartobimestre" value="<?php echo $array_alumnos[$k]['cuarto_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
-                                                                                <input type="text" style="display: none" value="4" name="grado">
+                                                                                <input type="text" style="display: none" value="3" name="grado">
                                                                                 <br>
                                                                                 <button style="margin-top: 5px" class="btn btn-success">Guardar</button>
                                                                             </td>
                                                                         </form>
 
+                                                                        <td align="center">
+                                                                            <?php
+                                                                            if ($final != ""){
+                                                                                if ($promedio == $final){
+                                                                                    echo "<input type=\"number\" name=\"cuartobimestre\" value=\"".$final."\" max=\"20\" min=\"0\">";
+                                                                                }else{
+                                                                                    ?>
+                                                                                    <input type="number" id="nota_final" name="nota_final" value="<?php echo $final; ?>" max="20" min="0">
+                                                                                    <br>
+                                                                                    <div id="botones">
+                                                                                        <p>Se modificarón notas, necesita actualizar nota final.</p>
+                                                                                        <button class="btn btn-warning" onclick="actualizar_nota(<?php echo $array_alumnos[$k]['id_datosusuario']; ?>,<?php echo $cursos_array[$x]['id_curso']; ?>);">ACTUALIZAR</button>
+                                                                                    </div>
+                                                                                    <?php
+                                                                                }
+                                                                            }else{
+                                                                                ?>
+                                                                                <input type="number" id="nota_final" name="nota_final" value="" max="20" min="0">
+                                                                                <br>
+                                                                                <div id="botones">
+                                                                                    <p>No tiene asignada la nota final.</p>
+                                                                                    <button class="btn btn-success" onclick="actualizar_nota(<?php echo $array_alumnos[$k]['id_datosusuario']; ?>,<?php echo $cursos_array[$x]['id_curso']; ?>);">ASIGNAR</button>
+                                                                                </div>
+                                                                                <?php
+                                                                            }
+                                                                            ?>
+                                                                        </td>
 
                                                                     </tr>
                                                                 </form>
@@ -350,6 +418,23 @@ $id_usuario = $token->id;
             responsive: true
         });
     });
+
+    function actualizar_nota(id_alumno, id_curso) {
+        let nota_final = document.getElementById('nota_final');
+        let botones = document.getElementById('botones');
+        $.ajax({
+            type: "POST",
+            url: 'actions/notafinal.php',
+            data: {id_alumno: id_alumno, id_curso: id_curso},
+            cache: false,
+            success: function(data){
+                let info = JSON.parse(data);
+                nota_final.value = info.nota;
+                alert(info.mensaje);
+                botones.style.display = 'none';
+            }
+        });
+    }
 </script>
 </body>
 

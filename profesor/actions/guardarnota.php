@@ -20,20 +20,28 @@ if (isset($_POST['primerbimestre'])){
     $con->close();
 
     if ($con->getnumrows($result_verificar_registro)>0){
-        echo "Ya tiene nota";
+        $sql_actualizar_nota = "UPDATE notasalumnos SET primer_bimestre=".$_POST['primerbimestre'].",fecha_primer='$fecha_actual' WHERE id_alumno=$id_alumno AND id_curso=$id_curso";
+        $con->connect();
+        $result_actualizar_nota = $con->query($sql_actualizar_nota);
+        $con->close();
 
         switch ($grado){
             case 1:
                 header("Location: ../notasprimergrado.php");
                 break;
             case 2:
+                header("Location: ../notassegundogrado.php");
                 break;
             case 3:
+                header("Location: ../notastercergrado.php");
                 break;
             case 4:
+                header("Location: ../notascuartogrado.php");
                 break;
             case 5:
+                header("Location: ../notasquintogrado.php");
                 break;
+
         }
     }else{
         // EN EL CASO QUE NO TENGA NOTAS EN ESE CURSO
@@ -47,13 +55,18 @@ if (isset($_POST['primerbimestre'])){
                 header("Location: ../notasprimergrado.php");
                 break;
             case 2:
+                header("Location: ../notassegundogrado.php");
                 break;
             case 3:
+                header("Location: ../notastercergrado.php");
                 break;
             case 4:
+                header("Location: ../notascuartogrado.php");
                 break;
             case 5:
+                header("Location: ../notasquintogrado.php");
                 break;
+
         }
     }
 }elseif (isset($_POST['segundobimestre'])){
@@ -67,10 +80,54 @@ if (isset($_POST['primerbimestre'])){
     $con->close();
 
     if ($con->getnumrows($result_verificar_registro)>0){
-        echo "Ya tiene nota";
+        $sql_actualizar_nota = "UPDATE notasalumnos SET segundo_bimestre=".$_POST['segundobimestre'].",fecha_primer='$fecha_actual' WHERE id_alumno=$id_alumno AND id_curso=$id_curso";
+        $con->connect();
+        $result_actualizar_nota = $con->query($sql_actualizar_nota);
+        $con->close();
+
+        switch ($grado){
+            case 1:
+                header("Location: ../notasprimergrado.php");
+                break;
+            case 2:
+                header("Location: ../notassegundogrado.php");
+                break;
+            case 3:
+                header("Location: ../notastercergrado.php");
+                break;
+            case 4:
+                header("Location: ../notascuartogrado.php");
+                break;
+            case 5:
+                header("Location: ../notasquintogrado.php");
+                break;
+
+        }
     }else{
         // EN EL CASO QUE NO TENGA NOTAS EN ESE CURSO
-        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,segundo_bimestre,)";
+        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,segundo_bimestre,fecha_primer) VALUES ($id_alumno,$id_curso,".$_POST['segundobimestre'].",'$fecha_actual')";
+        $con->connect();
+        $result_insertar_nota = $con->query($sql_insertar_nota);
+        $con->close();
+
+        switch ($grado){
+            case 1:
+                header("Location: ../notasprimergrado.php");
+                break;
+            case 2:
+                header("Location: ../notassegundogrado.php");
+                break;
+            case 3:
+                header("Location: ../notastercergrado.php");
+                break;
+            case 4:
+                header("Location: ../notascuartogrado.php");
+                break;
+            case 5:
+                header("Location: ../notasquintogrado.php");
+                break;
+
+        }
     }
 }elseif (isset($_POST['tercerbimestre'])){
     $tercerbimestre = $_POST['tercerbimestre'];
@@ -83,10 +140,54 @@ if (isset($_POST['primerbimestre'])){
     $con->close();
 
     if ($con->getnumrows($result_verificar_registro)>0){
-        echo "Ya tiene nota";
+        $sql_actualizar_nota = "UPDATE notasalumnos SET tercer_bimestre=".$_POST['tercerbimestre'].",fecha_primer='$fecha_actual' WHERE id_alumno=$id_alumno AND id_curso=$id_curso";
+        $con->connect();
+        $result_actualizar_nota = $con->query($sql_actualizar_nota);
+        $con->close();
+
+        switch ($grado){
+            case 1:
+                header("Location: ../notasprimergrado.php");
+                break;
+            case 2:
+                header("Location: ../notassegundogrado.php");
+                break;
+            case 3:
+                header("Location: ../notastercergrado.php");
+                break;
+            case 4:
+                header("Location: ../notascuartogrado.php");
+                break;
+            case 5:
+                header("Location: ../notasquintogrado.php");
+                break;
+
+        }
     }else{
         // EN EL CASO QUE NO TENGA NOTAS EN ESE CURSO
-        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,primer_bimestre,)";
+        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,tercer_bimestre,fecha_primer) VALUES ($id_alumno,$id_curso,".$_POST['tercerbimestre'].",'$fecha_actual')";
+        $con->connect();
+        $result_insertar_nota = $con->query($sql_insertar_nota);
+        $con->close();
+
+        switch ($grado){
+            case 1:
+                header("Location: ../notasprimergrado.php");
+                break;
+            case 2:
+                header("Location: ../notassegundogrado.php");
+                break;
+            case 3:
+                header("Location: ../notastercergrado.php");
+                break;
+            case 4:
+                header("Location: ../notascuartogrado.php");
+                break;
+            case 5:
+                header("Location: ../notasquintogrado.php");
+                break;
+
+        }
     }
 }elseif (isset($_POST['cuartobimestre'])){
     $cuartobimestre = $_POST['cuartobimestre'];
@@ -99,10 +200,54 @@ if (isset($_POST['primerbimestre'])){
     $con->close();
 
     if ($con->getnumrows($result_verificar_registro)>0){
-        echo "Ya tiene nota";
+        $sql_actualizar_nota = "UPDATE notasalumnos SET cuarto_bimestre=".$_POST['cuartobimestre'].",fecha_primer='$fecha_actual' WHERE id_alumno=$id_alumno AND id_curso=$id_curso";
+        $con->connect();
+        $result_actualizar_nota = $con->query($sql_actualizar_nota);
+        $con->close();
+
+        switch ($grado){
+            case 1:
+                header("Location: ../notasprimergrado.php");
+                break;
+            case 2:
+                header("Location: ../notassegundogrado.php");
+                break;
+            case 3:
+                header("Location: ../notastercergrado.php");
+                break;
+            case 4:
+                header("Location: ../notascuartogrado.php");
+                break;
+            case 5:
+                header("Location: ../notasquintogrado.php");
+                break;
+
+        }
     }else{
         // EN EL CASO QUE NO TENGA NOTAS EN ESE CURSO
-        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,primer_bimestre,)";
+        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,cuarto_bimestre,fecha_primer) VALUES ($id_alumno,$id_curso,".$_POST['cuartobimestre'].",'$fecha_actual')";
+        $con->connect();
+        $result_insertar_nota = $con->query($sql_insertar_nota);
+        $con->close();
+
+        switch ($grado){
+            case 1:
+                header("Location: ../notasprimergrado.php");
+                break;
+            case 2:
+                header("Location: ../notassegundogrado.php");
+                break;
+            case 3:
+                header("Location: ../notastercergrado.php");
+                break;
+            case 4:
+                header("Location: ../notascuartogrado.php");
+                break;
+            case 5:
+                header("Location: ../notasquintogrado.php");
+                break;
+
+        }
     }
 }
 
