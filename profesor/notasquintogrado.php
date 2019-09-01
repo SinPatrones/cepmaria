@@ -117,22 +117,23 @@ $id_usuario = $token->id;
                                         ?>
                                     </ul>
                                     <?php
-                                    $sql_alumnos = "SELECT datosusuarios.* FROM datosusuarios INNER JOIN matriculas ON datosusuarios.id_datosusuario=matriculas.id_alumno WHERE matriculas.grado_matricula='QUINTO'";
-                                    $con->connect();
-                                    $result_alumnos = $con->query($sql_alumnos);
-                                    $con->close();
 
-                                    $array_alumnos = Array();
-
-                                    while ($row_alumno = $con->getarray($result_alumnos)){
-                                        array_push($array_alumnos, $row_alumno);
-                                    }
 
                                     ?>
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <?php
                                         for ($x = 0; $x < sizeof($cursos_array); $x++){
+                                            $sql_alumnos = "SELECT datosusuarios.*,notasalumnos.* FROM datosusuarios INNER JOIN matriculas ON datosusuarios.id_datosusuario=matriculas.id_alumno INNER JOIN notasalumnos ON datosusuarios.id_datosusuario=notasalumnos.id_alumno WHERE matriculas.grado_matricula='QUINTO' AND notasalumnos.id_curso=".$cursos_array[$x]['id_curso'];
+                                            $con->connect();
+                                            $result_alumnos = $con->query($sql_alumnos);
+                                            $con->close();
+
+                                            $array_alumnos = Array();
+
+                                            while ($row_alumno = $con->getarray($result_alumnos)){
+                                                array_push($array_alumnos, $row_alumno);
+                                            }
                                             if ($x == 0){
                                                 ?>
                                                 <div class="tab-pane fade in active" id="curso<?php echo $cursos_array[$x]['id_curso']; ?>">
@@ -161,7 +162,7 @@ $id_usuario = $token->id;
                                                                         <td><?php echo $array_alumnos[$k]['apellidos']; ?></td>
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="primerbimestre" max="20" min="0">
+                                                                                <input type="number" name="primerbimestre" value="<?php echo $array_alumnos[$k]['primer_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="1" name="grado">
@@ -172,7 +173,7 @@ $id_usuario = $token->id;
 
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="segundobimestre" max="20" min="0">
+                                                                                <input type="number" name="segundobimestre" value="<?php echo $array_alumnos[$k]['segundo_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="2" name="grado">
@@ -183,7 +184,7 @@ $id_usuario = $token->id;
 
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="tercerbimestre" max="20" min="0">
+                                                                                <input type="number" name="tercerbimestre" value="<?php echo $array_alumnos[$k]['tercer_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="3" name="grado">
@@ -194,7 +195,7 @@ $id_usuario = $token->id;
 
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="cuartobimestre" max="20" min="0">
+                                                                                <input type="number" name="cuartobimestre" value="<?php echo $array_alumnos[$k]['cuarto_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="4" name="grado">
@@ -242,7 +243,7 @@ $id_usuario = $token->id;
                                                                         <td><?php echo $array_alumnos[$k]['apellidos']; ?></td>
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="primerbimestre" max="20" min="0">
+                                                                                <input type="number" name="primerbimestre" value="<?php echo $array_alumnos[$k]['primer_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="1" name="grado">
@@ -253,7 +254,7 @@ $id_usuario = $token->id;
 
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="segundobimestre" max="20" min="0">
+                                                                                <input type="number" name="segundobimestre" value="<?php echo $array_alumnos[$k]['segundo_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="2" name="grado">
@@ -264,7 +265,7 @@ $id_usuario = $token->id;
 
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="tercerbimestre" max="20" min="0">
+                                                                                <input type="number" name="tercerbimestre" value="<?php echo $array_alumnos[$k]['tercer_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="3" name="grado">
@@ -275,7 +276,7 @@ $id_usuario = $token->id;
 
                                                                         <form action="actions/guardarnota.php" method="post">
                                                                             <td align="center">
-                                                                                <input type="number" name="cuartobimestre" max="20" min="0">
+                                                                                <input type="number" name="cuartobimestre" value="<?php echo $array_alumnos[$k]['cuarto_bimestre']; ?>" max="20" min="0">
                                                                                 <input type="text" style="display: none" value="<?php echo $array_alumnos[$k]['id_datosusuario']; ?>" name="id_alumno">
                                                                                 <input type="text" style="display: none" value="<?php echo $cursos_array[$x]['id_curso']; ?>" name="id_curso">
                                                                                 <input type="text" style="display: none" value="4" name="grado">

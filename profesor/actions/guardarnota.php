@@ -70,7 +70,7 @@ if (isset($_POST['primerbimestre'])){
         echo "Ya tiene nota";
     }else{
         // EN EL CASO QUE NO TENGA NOTAS EN ESE CURSO
-        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,primer_bimestre,)";
+        $sql_insertar_nota = "INSERT INTO notasalumnos(id_alumno,id_curso,segundo_bimestre,)";
     }
 }elseif (isset($_POST['tercerbimestre'])){
     $tercerbimestre = $_POST['tercerbimestre'];

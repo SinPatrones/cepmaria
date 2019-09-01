@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>C.E.P. María Auxiliadora Arequipa</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="Seguridad Arequipa Confianza Equipo Peru Ganesha" name="keywords">
-  <meta content="Somos una empresa dedicada a brindar seguridad en todo tipo de eventos públicos y privados." name="description">
+  <meta content="Colecio Arequipa Perú" name="keywords">
+  <meta content="Somos un Centro Educativo Particular ubicado en la ciudad de Arequipa, dedicado para mujeres." name="description">
 
   <!-- Icon -->
   <link href="img/favicon.png" rel="icon">
